@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cape Town Weather</title>
+
+    <style>
+      body {
+        background: #f0f4f8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        font-family: sans-serif;
+      }
+
+      .card {
+        background: white;
+        border-radius: 16px;
+        padding: 24px;
+        width: 320px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .current {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 4px;
+      }
+
+      .emoji {
+        font-size: 40px;
+      }
+
+      h1 {
+        font-size: 22px;
+        color: violet;
+        font-weight: bold;
+        margin: 0;
+        line-height: 1.3;
+      }
+
+      .range-now {
+        font-size: 13px;
+        color: #888888;
+        margin: 0 0 16px 0;
+      }
+
+      .divider {
+        border: none;
+        border-top: 1px solid #e8e8e8;
+        margin: 0 0 16px 0;
+      }
+
+      .forecast {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .forecast li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        border-radius: 8px;
+        transition: all 200ms ease-in-out;
+      }
+
+      .forecast li:hover {
+        background: #fff5e6;
+        cursor: pointer;
+      }
+
+      .day-info {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .day-emoji {
+        font-size: 22px;
+      }
+
+      .day-name {
+        font-size: 15px;
+        font-weight: bold;
+        color: #222;
+      }
+
+      .day-range {
+        font-size: 14px;
+        color: #888888;
+      }
+
+      .high-temp {
+        font-weight: bold;
+        color: #222;
+      }
+
+      .change-city {
+        display: block;
+        margin: 25px auto 15px;
+        padding: 12px 28px;
+        background: #ff6600;
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 200ms ease-in-out;
+      }
+
+      .change-city:hover {
+        background: #e65c00;
+      }
+
+      .credit {
+        text-align: center;
+        font-size: 12px;
+        color: #aaa;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="card">
+      <div class="current">
+        <span class="emoji">🌤</span>
+        <h1 id="city-heading">Currently 21° in Cape Town</h1>
+      </div>
+
+      <p class="range-now">13° / <span class="high-temp">23°</span></p>
+
+      <hr class="divider" />
+
+      <ul class="forecast">
+        <li>
+          <div class="day-info">
+            <span class="day-emoji">🌧</span>
+            <span class="day-name">Tomorrow</span>
+          </div>
+          <span class="day-range">
+            10° / <span class="high-temp">22°</span>
+          </span>
+        </li>
+
+        <li>
+          <div class="day-info">
+            <span class="day-emoji">🌥</span>
+            <span class="day-name">Saturday</span>
+          </div>
+          <span class="day-range">
+            15° / <span class="high-temp">17°</span>
+          </span>
+        </li>
+
+        <li>
+          <div class="day-info">
+            <span class="day-emoji">☀️</span>
+            <span class="day-name">Sunday</span>
+          </div>
+          <span class="day-range">
+            25° / <span class="high-temp">28°</span>
+          </span>
+        </li>
+      </ul>
+
+      <button class="change-city" onclick="changeCity()">Change City</button>
+
+      <p class="credit">Coded by Cebisile Ngubane</p>
+    </div>
+
+    <script>
+      function changeCity() {
+        let city = prompt("Enter a city name:");
+
+        if (city) {
+          document.getElementById("city-heading").innerHTML =
+            `Currently 21° in ${city}`;
+        }
+      }
+    </script>
+  </body>
+</html>
