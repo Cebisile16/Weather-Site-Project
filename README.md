@@ -55,13 +55,13 @@ All you need is a modern web browser such as:
 1. Clone the repository.
 
 ```bash
-git clone https://github.com/Cebisile16/weather-forecast.git
+git clone https://github.com/Cebisile16/weather-Site_Project.git
 ```
 
 2. Navigate into the project folder.
 
 ```bash
-cd weather-forecast
+cd weather-Site-Project
 ```
 
 3. Open `index.html` in your preferred web browser.
