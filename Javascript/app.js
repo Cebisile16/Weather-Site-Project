@@ -10,3 +10,4 @@ function changeCity() {
 const changeCityButton = document.querySelector(".change-city");
 
 changeCityButton.addEventListener("click", changeCity);
+console.log("Weather App Loaded!");
