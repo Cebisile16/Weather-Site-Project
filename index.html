@@ -3,76 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cape Town Weather</title>
+    <title>Weather App</title>
 
-    <!-- Link CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
-    <div class="card">
+<div class="container">
 
-        <div class="current">
-            <span class="emoji">🌤</span>
-            <h1 id="city-heading">Currently 21° in Cape Town</h1>
-        </div>
+    <h1>🌤 Weather App</h1>
 
-        <p class="range-now">
-            13° / <span class="high-temp">23°</span>
+    <div class="search-box">
+        <input
+            type="text"
+            id="cityInput"
+            placeholder="Enter city name">
+
+        <button id="searchBtn">
+            Search
+        </button>
+    </div>
+
+    <div id="weatherCard" class="weather-card">
+
+        <h2 id="cityName">
+            City
+        </h2>
+
+        <h3 id="temperature">
+            -- °C
+        </h3>
+
+        <p id="description">
+            Weather description
         </p>
 
-        <hr class="divider">
+        <p id="humidity">
+            Humidity:
+        </p>
 
-        <ul class="forecast">
-
-            <li>
-                <div class="day-info">
-                    <span class="day-emoji">🌧</span>
-                    <span class="day-name">Tomorrow</span>
-                </div>
-
-                <span class="day-range">
-                    10° / <span class="high-temp">22°</span>
-                </span>
-            </li>
-
-            <li>
-                <div class="day-info">
-                    <span class="day-emoji">🌥</span>
-                    <span class="day-name">Saturday</span>
-                </div>
-
-                <span class="day-range">
-                    15° / <span class="high-temp">17°</span>
-                </span>
-            </li>
-
-            <li>
-                <div class="day-info">
-                    <span class="day-emoji">☀️</span>
-                    <span class="day-name">Sunday</span>
-                </div>
-
-                <span class="day-range">
-                    25° / <span class="high-temp">28°</span>
-                </span>
-            </li>
-
-        </ul>
-
-        <button class="change-city">
-            Change City
-        </button>
-
-        <p class="credit">
-            Coded by Cebisile Ngubane
+        <p id="wind">
+            Wind:
         </p>
 
     </div>
 
-    <!-- linking it to JS -->
-    <script src="js/app.js"></script>
+</div>
+
+<script src="js/app.js"></script>
 
 </body>
 </html>
