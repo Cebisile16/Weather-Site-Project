@@ -36,3 +36,4 @@ button.addEventListener("click", () => {
       weatherResult.innerHTML = "<p>Unable to find weather for this city.</p>";
     });
 });
+console.log("Weather app loaded successfully");
