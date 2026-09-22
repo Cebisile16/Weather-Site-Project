@@ -3,3 +3,6 @@
 !.env.example
 
 target/
+backend/venv/
+
+backend/venv/
