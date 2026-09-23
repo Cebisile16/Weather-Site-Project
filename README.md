@@ -1,35 +1,37 @@
 # Weather Site Project
 
-A responsive weather application built with **HTML, CSS, and JavaScript** that retrieves weather information from a weather API and displays it in a user-friendly interface.
+A simple weather application that allows a user to search for a city and view its current weather information.
 
-This project forms part of my software development and cloud computing learning journey. It has also been used to practise **Maven, automated testing, CI/CD, Git/GitHub, and AWS cloud concepts**.
+I started this project as part of my software engineering learning journey. While working on it, I used it to practise JavaScript, APIs, Maven, testing, Git/GitHub, GitHub Actions and AWS.
 
 ## Features
 
-* Search for weather information
-* Retrieve weather data using a weather API
-* Display weather information through a simple web interface
-* Responsive front-end design
-* JavaScript-based API integration
-* Automated testing with JUnit
-* Maven project configuration
-* Continuous Integration using GitHub Actions
-* Packaged as a Maven JAR
-* Prepared for deployment to AWS
+* Search for weather information by city
+* Display temperature, weather conditions and humidity
+* Responsive web interface
+* Flask backend for handling weather API requests
+* API key stored on the backend
+* JUnit tests
+* Maven build
+* GitHub Actions CI
+* Deployed to AWS EC2
 
 ## Technologies Used
 
-* **HTML5** – Structure of the web application
-* **CSS3** – Styling and layout
-* **JavaScript** – Application logic and API integration
-* **Weather API** – Provides weather data
-* **Java** – Testing and Maven project support
-* **JUnit** – Automated testing
-* **Maven** – Build and dependency management
-* **Git** – Version control
-* **GitHub** – Source code hosting and CI/CD
-* **GitHub Actions** – Continuous Integration
-* **AWS** – Cloud computing and deployment learning
+* HTML
+* CSS
+* JavaScript
+* Python
+* Flask
+* OpenWeatherMap API
+* Java
+* JUnit
+* Maven
+* Git and GitHub
+* GitHub Actions
+* AWS EC2
+* Nginx
+* Gunicorn
 
 ## Project Structure
 
@@ -37,21 +39,14 @@ This project forms part of my software development and cloud computing learning 
 Weather-Site-Project/
 │
 ├── .github/
-│   ├── modernize/
-│   │   └── java-upgrade/
-│   │       ├── .gitignore
-│   │       └── hooks/
-│   │           └── scripts/
-│   │               ├── recordToolUse.ps1
-│   │               └── recordToolUse.sh
-│   │
 │   └── workflows/
 │       └── ci.yml
 │
-├── .vscode/
-│   └── settings.json
+├── backend/
+│   ├── app.py
+│   └── requirements.txt
 │
-├── CSS/
+├── css/
 │   └── style.css
 │
 ├── js/
@@ -70,19 +65,19 @@ Weather-Site-Project/
 └── README.md
 ```
 
-> **Note:** The `target/` directory is generated automatically by Maven during the build process and is not part of the source code.
+The `target/` folder is created by Maven when the project is built and is not part of the source code.
 
 ## Prerequisites
 
-Before running the project, make sure the following are installed:
+You will need:
 
-* A modern web browser such as Chrome, Firefox, or Edge
-* Python 3 (recommended for running a local web server)
+* Python 3
 * Java JDK
-* Apache Maven
+* Maven
 * Git
+* A web browser
 
-You can verify the installations using:
+You can check your installations with:
 
 ```bash
 python --version
@@ -93,179 +88,207 @@ git --version
 
 ## Getting the Project
 
-Clone the repository:
+Clone:
 
 ```bash
-git clone https://github.com/Cebisile16/Weather-Site-Project
+git clone https://github.com/Cebisile16/Weather-Site-Project.git
 ```
 
-Move into the project directory:
+Then:
 
 ```bash
 cd Weather-Site-Project
 ```
 
-## Running the Weather Application
+## Setting Up the API Key
 
-Because the application uses JavaScript and an external weather API, it is recommended to run it through a local web server rather than opening `index.html` directly.
+The Flask backend uses the OpenWeatherMap API.
 
-### Option 1: Python HTTP Server
+Create:
 
-From the project directory, run:
+`backend/.env`
+
+Add:
+
+`OPENWEATHER_API_KEY=your_api_key_here`
+
+The `.env` file should not be pushed to GitHub.
+
+## Running the Project Locally
+
+The project has a frontend and a Flask backend, so both need to be running.
+
+### 1. Start the backend
 
 ```bash
+cd backend
+python -m venv venv
+```
+
+Windows:
+
+```bash
+venv\Scripts\activate
+```
+
+Linux/macOS:
+
+```bash
+source venv/bin/activate
+```
+
+Install:
+
+```bash
+pip install -r requirements.txt
+```
+
+Start Flask:
+
+```bash
+python app.py
+```
+
+Backend:
+
+`http://127.0.0.1:5000`
+
+### 2. Start the frontend
+
+Open a second terminal:
+
+```bash
+cd Weather-Site-Project
 python -m http.server 8000
 ```
 
-You should see a message similar to:
+Open:
 
+`http://localhost:8000`
 
-Serving HTTP on 0.0.0.0 port 8000
-
-Open your browser and go to:
-
-
-http://localhost:8000
-
-
-The Weather Site should now be available locally.
-
-To stop the server, press:
-
-
-CTRL + C
-
-
-## Running the Maven Build
-
-This project uses Maven for build and dependency management.
-
-To compile the project and run the tests:
+### 3. Test backend
 
 ```bash
-mvn clean test
+curl "http://127.0.0.1:5000/api/weather?city=Johannesburg"
 ```
 
-A successful build should complete without test failures.
+## Maven
 
-To package the project:
-
-```bash
-mvn clean package
-```
-
-The generated JAR file will be placed inside the `target/` directory.
-
-Example:
-
-```text
-target/weather-site-1.0.0.jar
-```
-
-## Running the Tests
-
-The automated tests are located under:
-
-```text
-src/test/java/com/weatherapp/WeatherSiteTest.java
-```
-
-Run the tests with:
+Run tests:
 
 ```bash
 mvn test
 ```
 
-Maven will compile the test code and execute the JUnit tests.
+Clean test:
 
-Test reports are generated under:
-
-```text
-target/surefire-reports/
+```bash
+mvn clean test
 ```
 
-## Continuous Integration
+Package:
 
-The project includes a GitHub Actions workflow:
-
-```text
-.github/workflows/ci.yml
+```bash
+mvn clean package
 ```
 
-The workflow is used to automate project checks when changes are pushed to the repository.
+Build files are in `target/`.
 
-This helps ensure that changes can be built and tested consistently rather than relying entirely on manual testing.
+## Tests
 
-## API Configuration
+Test location:
 
-The application retrieves weather information from an external weather API.
+`src/test/java/com/weatherapp/WeatherSiteTest.java`
 
+Run:
 
-## AWS / Cloud Learning
+```bash
+mvn test
+```
 
-Through the project, I am exploring concepts such as:
+## GitHub Actions
 
-* Cloud deployment
-* Hosting web applications
-* Compute resources
-* Application availability
-* Build and deployment processes
-* Cloud infrastructure
-* AWS services
-* Continuous Integration and Continuous Deployment concepts
+Workflow:
 
-The goal is to take the concepts learned through AWS training and apply them to a real software project rather than learning them only theoretically.
+`.github/workflows/ci.yml`
+
+The workflow builds the project and runs tests when changes are pushed to GitHub.
+
+## AWS Deployment
+
+The application has been deployed to an AWS EC2 instance running Ubuntu.
+
+Setup:
+
+* EC2 – hosts application
+* Nginx – serves frontend and forwards API requests
+* Gunicorn – runs Flask backend
+* systemd – keeps Gunicorn running
+* Security Group – allows HTTP port 80
+
+Flow:
+
+Browser → Nginx → Frontend / Flask Backend → OpenWeatherMap API
+
+Frontend is served by Nginx, `/api/` requests go to Flask backend. The API key is kept on the server instead of the frontend JavaScript.
+
+## Deployed Application
+
+App:
+
+`http://54.242.213.226/`
+
+API:
+
+`http://54.242.213.226/api/weather?city=Johannesburg`
+
+Note: The public IP can change if the EC2 instance is stopped and started unless an Elastic IP is configured.
 
 ## Development Workflow
 
-A typical development workflow for this project is:
+Make changes → Test locally → Run Maven tests → Commit → Push to GitHub → GitHub Actions runs → Update AWS deployment
 
+## What I Have Learned
 
-1. Make changes to the application
-        ↓
-2. Test the application locally
-        ↓
-3. Run automated tests
-        ↓
-4. Build the project with Maven
-        ↓
-5. Commit changes with Git
-        ↓
-6. Push changes to GitHub
-        ↓
-7. GitHub Actions runs CI checks
-        ↓
-8. Deploy / update the application in AWS
+This project has helped me practise:
 
+* JavaScript and APIs
+* Flask and Python
+* Maven and JUnit
+* Git and GitHub
+* GitHub Actions
+* Linux
+* AWS EC2
+* Nginx
+* Gunicorn
+* Environment variables
+* Deploying an application to the cloud
 
-
-
+I am using this project to take what I learn and actually apply it instead of only doing the theory.
 
 ## Future Improvements
 
-Possible future improvements include:
-
-* Improve the user interface
-* Add more detailed weather information
 * Add weather icons
-* Add additional locations
-* Improve error handling
-* Improve automated test coverage
-* Improve API key security
-* Deploy the application to AWS
-* Explore additional AWS services
-* Improve the CI/CD pipeline
+* Display more weather information
+* Add multi-day forecast
+* Improve error messages
+* Add more tests
+* Add HTTPS
+* Set up Elastic IP
+* Continue improving AWS deployment
 
 ## Author
 
-*Cebisile Ngubane*
+**Cebisile Ngubane**
 
-This project is part of my journey as I continue developing my software engineering and cloud computing skills.
+This project is part of my software engineering and cloud computing learning journey.
 
 ### LinkedIn
 
-[View my AWS Cloud Learning Journey on LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7507456081623883776/)
+View my AWS Cloud Learning Journey on LinkedIn:
+
+https://www.linkedin.com/feed/update/urn:li:activity:7507456081623883776/
 
 ## License
 
-This project is intended for educational and learning purposes.
+This project is for educational and learning purposes.

@@ -11,7 +11,7 @@ button.addEventListener("click", () => {
 
   weatherResult.innerHTML = "<p>Loading weather...</p>";
 
-  fetch(`http://127.0.0.1:5000/api/weather?city=${encodeURIComponent(city)}`)
+  fetch(`/api/weather?city=${encodeURIComponent(city)}`)
     .then((response) => {
       if (!response.ok) {
         throw new Error("City not found");
