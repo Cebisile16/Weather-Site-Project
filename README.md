@@ -7,30 +7,51 @@ I started this project as part of my software engineering learning journey. Whil
 ## Features
 
 * Search for weather information by city
+
 * Display temperature, weather conditions and humidity
+
 * Responsive web interface
+
 * Flask backend for handling weather API requests
+
 * API key stored on the backend
+
 * JUnit tests
+
 * Maven build
+
 * GitHub Actions CI
+
 * Deployed to AWS EC2
 
 ## Technologies Used
 
 * HTML
+
 * CSS
+
 * JavaScript
+
 * Python
+
 * Flask
+
 * OpenWeatherMap API
+
 * Java
+
 * JUnit
+
 * Maven
+
 * Git and GitHub
+
 * GitHub Actions
+
 * AWS EC2
+
 * Nginx
+
 * Gunicorn
 
 ## Project Structure
@@ -72,9 +93,13 @@ The `target/` folder is created by Maven when the project is built and is not pa
 You will need:
 
 * Python 3
+
 * Java JDK
+
 * Maven
+
 * Git
+
 * A web browser
 
 You can check your installations with:
@@ -221,9 +246,13 @@ The application has been deployed to an AWS EC2 instance running Ubuntu.
 Setup:
 
 * EC2 – hosts application
+
 * Nginx – serves frontend and forwards API requests
+
 * Gunicorn – runs Flask backend
+
 * systemd – keeps Gunicorn running
+
 * Security Group – allows HTTP port 80
 
 Flow:
@@ -253,15 +282,25 @@ Make changes → Test locally → Run Maven tests → Commit → Push to GitHub 
 This project has helped me practise:
 
 * JavaScript and APIs
+
 * Flask and Python
+
 * Maven and JUnit
+
 * Git and GitHub
+
 * GitHub Actions
+
 * Linux
+
 * AWS EC2
+
 * Nginx
+
 * Gunicorn
+
 * Environment variables
+
 * Deploying an application to the cloud
 
 I am using this project to take what I learn and actually apply it instead of only doing the theory.
@@ -269,13 +308,30 @@ I am using this project to take what I learn and actually apply it instead of on
 ## Future Improvements
 
 * Add weather icons
+
 * Display more weather information
+
 * Add multi-day forecast
+
 * Improve error messages
+
 * Add more tests
+
 * Add HTTPS
+
 * Set up Elastic IP
+
 * Continue improving AWS deployment
+
+## WTC Code
+
+WTC-EAYRDVX4
+
+## Demo Video
+
+YouTube demo video:
+
+https://youtu.be/rDf-qXTLCBg
 
 ## Author
 
