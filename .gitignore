@@ -5,6 +5,5 @@
 target/
 backend/venv/
 
-backend/venv/
-
-__pycache__/
+**/**pycache**/
+node_modules/
